@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 // import 'package:hello/sized_expanded_stack/SizedBoxWidget.dart';
 // import 'package:hello/sized_expanded_stack/StackWidget.dart';
 // import 'package:rpl2/sized_expanded_stack/LayoutTiga.dart';
-import 'package:rpl2/list_view_flutter/ListViewBasic.dart';
+// import 'package:rpl2/list_view_flutter/ListViewBasic.dart';
 // import 'package:rpl2/list_view_flutter/ListViewBuilder.dart';
 // import 'package:rpl2/list_view_flutter/ListViewSeparated.dart';
 // import 'package:rpl2/list_view_flutter/ListViewCustom.dart';
@@ -21,6 +21,8 @@ import 'package:rpl2/list_view_flutter/ListViewBasic.dart';
 // import 'package:rpl2/grid_view_flutter/GridViewBuilder.dart';
 // import 'package:rpl2/grid_view_flutter/GridViewextent.dart';
 // import 'package:rpl2/grid_view_flutter/GridViewCustom.dart';
+// import 'package:rpl2/grid_view_flutter/grid_screen.dart';
+import 'package:rpl2/latihan/LatihanFeedig.dart';
 void main() {
   runApp(MyApp());
 }
@@ -37,7 +39,7 @@ class MyApp extends StatelessWidget {
         //   backgroundColor: const Color.fromARGB(255, 69, 67, 64),
         //   centerTitle: true,
         // ),
-        body:const ListViewBasic(),
+        body: const LatihanFeed(),
       ),
     );
   }
