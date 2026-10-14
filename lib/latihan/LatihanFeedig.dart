@@ -52,7 +52,7 @@ class FeedScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Instagram',
+          'instagram',
           style: TextStyle(
             fontFamily: 'Billabong',
             fontSize: 28,
