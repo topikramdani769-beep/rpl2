@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class OutputFormScreen extends StatelessWidget {
   final String nama, jk, tglLahir, agama;
 
-  OutputFormScreen({
+  const OutputFormScreen({
     Key? key,
     required this.nama,
     required this.jk,
@@ -13,26 +13,34 @@ class OutputFormScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Card(
-          elevation: 4,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-            side: BorderSide(color: Colors.black),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _textWidget("Nama", nama),
-                _textWidget("Jenis Kelamin", jk),
-                _textWidget("Tanggal Lahir", tglLahir),
-                _textWidget("Agama", agama),
-              ],
+    return Scaffold(
+      // PERBAIKAN: Ditambahkan Scaffold dan AppBar agar halaman tidak error/transparan
+      appBar: AppBar(
+        title: const Text('Output Biodata'),
+        backgroundColor: Colors.blueGrey,
+        foregroundColor: Colors.white,
+      ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Card(
+            elevation: 4,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+              side: const BorderSide(color: Colors.black),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _textWidget("Nama", nama),
+                  _textWidget("Jenis Kelamin", jk),
+                  _textWidget("Tanggal Lahir", tglLahir),
+                  _textWidget("Agama", agama),
+                ],
+              ),
             ),
           ),
         ),
@@ -49,8 +57,8 @@ class OutputFormScreen extends StatelessWidget {
           SizedBox(
             width: 120,
             child: Text(
-              "$label",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              label,
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
           Expanded(child: Text(": $value")),

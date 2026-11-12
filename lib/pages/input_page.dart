@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hello/helpers/size_helper.dart';
-import 'package:hello/pages/output_screen.dart';
+import 'package:rpl2/helpers/size_helper.dart';
+import 'output_page.dart';
 import 'package:intl/intl.dart';
 
 class BelajarForm extends StatefulWidget {
@@ -134,7 +134,7 @@ class _BelajarFormState extends State<BelajarForm> {
                           border: OutlineInputBorder(),
                         ),
                         validator: (value) {
-                          if (value!.isEmpty) {
+                          if (value == null || value.isEmpty) {
                             return 'Input Tanggal Lahir';
                           }
                           return null;
@@ -170,9 +170,9 @@ class _BelajarFormState extends State<BelajarForm> {
                               ),
                             )
                             .toList(),
-                        onChanged: (Value) {
+                        onChanged: (value) {
                           setState(() {
-                            _pilihAgama = Value!;
+                            _pilihAgama = value!;
                           });
                         },
                         validator: (value) {

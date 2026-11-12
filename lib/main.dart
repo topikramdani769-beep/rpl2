@@ -1,43 +1,29 @@
 import 'package:flutter/material.dart';
-// import 'package:hello/container/Containersatu.dart';
-// import 'package:hello/container/LatihanContainer.dart';
-// import 'package:hello/row_column/ColumnWidget.dart';
-// import 'package:hello/row_column/LatihanRowColumn.dart';
-// import 'package:hello/row_column/RowColumnWidget.dart';
-// import 'package:hello/row_column/RowWidget.dart';
-// import 'package:hello/sized_expanded_stack/ExpandedWidget.dart';
-// import 'package:hello/sized_expanded_stack/LatihanLayout.dart';
-// import 'package:hello/sized_expanded_stack/LayoutDua.dart';
-// import 'package:hello/sized_expanded_stack/LayoutEmpat.dart';
-// import 'package:hello/sized_expanded_stack/Layoutsatu.dart';
-// import 'package:hello/sized_expanded_stack/SizedBoxWidget.dart';
-// import 'package:hello/sized_expanded_stack/StackWidget.dart';
-// import 'package:rpl2/sized_expanded_stack/LayoutTiga.dart';
-// import 'package:rpl2/list_view_flutter/ListViewBasic.dart';
-// import 'package:rpl2/list_view_flutter/ListViewBuilder.dart';
-// import 'package:rpl2/list_view_flutter/ListViewSeparated.dart';
-// import 'package:rpl2/list_view_flutter/ListViewCustom.dart';
-// import 'package:rpl2/grid_view_flutter/GridViewBasic.dart';
-// import 'package:rpl2/grid_view_flutter/GridViewBuilder.dart';
-// import 'package:rpl2/grid_view_flutter/GridViewextent.dart';
-// import 'package:rpl2/grid_view_flutter/GridViewCustom.dart';
-// import 'package:rpl2/grid_view_flutter/grid_screen.dart';
-// import 'package:rpl2/latihan/LatihanFeedig.dart';
-// import 'package:rpl2/pages/home_page.dart';
+
+import 'pages/home_page.dart';
 import 'routes/app_routes.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // const MyApp({Key? key});
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: "/",
-      routes: AppRoutes.routes, 
+      title: 'Aplikasi Portofolio RPL',
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+        useMaterial3: true,
+      ),
+      // home: const HomePage(), // <-- Hapus baris home ini
+      
+      // Karena AppRoutes.routes sudah memiliki rute '/' (home), 
+      // Flutter akan otomatis membukanya sebagai halaman awal!
+      routes: AppRoutes.routes,
     );
   }
 }
