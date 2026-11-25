@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 
-import 'pages/home_page.dart';
+import 'pages/article_list_page.dart';
+import 'pages/login_page.dart';
+import 'pages/register_page.dart';
 import 'routes/app_routes.dart';
+import 'services/auth_service.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final token = await AuthService().getToken();
+  runApp(MyApp(isLoggedIn: token != null));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool isLoggedIn;
+
+  const MyApp({super.key, required this.isLoggedIn});
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +23,16 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Aplikasi Portofolio RPL',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
-      // home: const HomePage(), // <-- Hapus baris home ini
-      
-      // Karena AppRoutes.routes sudah memiliki rute '/' (home), 
-      // Flutter akan otomatis membukanya sebagai halaman awal!
-      routes: AppRoutes.routes,
+      initialRoute: isLoggedIn ? '/' : '/login',
+      routes: {
+        ...AppRoutes.routes,
+        '/login': (context) => const LoginPage(),
+        '/register': (context) => const RegisterPage(),
+        '/articles': (context) => const ArticleListPage(),
+      },
     );
   }
 }
